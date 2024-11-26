@@ -1,12 +1,29 @@
-function bmiCalculator(weight, height) {
-    return (weight / height ** 2).toFixed(2)
-}
+var button = document.getElementById('btnC')
+var height = document.getElementById('height')
+var weight = document.getElementById('weight')
 
-const btn = document.getElementById("calculateBtn");
-const showResult = document.getElementById("showResult");
-const weight = document.getElementById("weight");
-const height = document.getElementById("height");
+button.addEventListener('click', function () {
+    if(!height.value || !weight.value) {
+        return alert('Please write sth ')
+    }
 
-/*button.addEventListener('click' , () => ) ; {
-    const user
-}*/
+
+    var heightInm = height.value / 100;
+    var bmi = (weight.value / (heightInm**2)).toFixed(3)
+
+    
+
+    if (bmi <= 18.5) {
+        result = 'you are thin'
+    }else if (bmi > 18.5 && bmi <= 25) {
+         result = 'you are normal'
+    }else if  (bmi > 25 && bmi >= 30 ) {
+        result = 'you are not normal'
+    }else if (bmi > 30) {
+        result = ' you are fat '
+    }
+
+    alert(bmi)
+    alert(result)
+       
+})
